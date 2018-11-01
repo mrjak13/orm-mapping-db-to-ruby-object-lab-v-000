@@ -30,7 +30,7 @@ class Student
     SELECT * FROM students
     SQL
 
-    DB[:conn].execute(sql, name).map {|row| Student.new_from_db(row)}
+    DB[:conn].execute(sq).map {|row| Student.new_from_db(row)}
   end
 
   def self.all_students_in_grade_9
