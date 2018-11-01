@@ -7,7 +7,6 @@ class Student
     new_student.name = row[1]
     new_student.grade = row[2]
     new_student
-    # create a new Student object given a row from the database
   end
 
   def self.all
@@ -16,8 +15,6 @@ class Student
     SQL
 
     DB[:conn].execute(sql).map {|row| Song.new_from_db(row)}
-    # retrieve all the rows from the "Students" database
-    # remember each row should be a new instance of the Student class
   end
 
   def self.find_by_name(name)
@@ -26,8 +23,15 @@ class Student
     SQL
 
     DB[:conn].execute(sql, name).map {|row| Student.new_from_db(row)}.first
-    # find the student in the database given a name
-    # return a new instance of the Student class
+  end
+
+  def self.all_students_in_grade_9
+    sql = <<-SQL
+      SELECT students.name FROM students WHERE grade = 9th
+    SQL
+
+    DB[:conn].execute(sql).map {|row| Student.new_from_db(row)}
+
   end
 
   def save
