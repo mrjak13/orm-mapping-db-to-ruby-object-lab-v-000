@@ -5,6 +5,8 @@ class Student
     new_student = self.new
     if row.first.is_a?(String)
       new_student.name = row.first
+      new_student.id=nil
+      new_student.grade=nil
     elsif
       new_student.id = row[0]
       new_student.name = row[1]
