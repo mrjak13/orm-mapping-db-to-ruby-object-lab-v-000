@@ -39,7 +39,6 @@ class Student
     SQL
 
     DB[:conn].execute(sql).map {|row| Student.new_from_db(row)}
-
   end
 
   def self.students_below_12th_grade
@@ -48,7 +47,6 @@ class Student
     SQL
 
     DB[:conn].execute(sql).map {|row| Student.new_from_db(row)}
-
   end
 
   def save
