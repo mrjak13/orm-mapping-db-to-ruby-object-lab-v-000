@@ -3,6 +3,11 @@ class Student
 
   def self.new_from_db(row)
     binding.pry
+    new_song = self.new
+    new_song.id = row[0]
+    new_song.name = row[1]
+    new_song.grade = row[2]
+    new_song
     # create a new Student object given a row from the database
   end
 
