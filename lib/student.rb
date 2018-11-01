@@ -25,7 +25,7 @@ class Student
     SELECT * FROM students WHERE name = ?
     SQL
 
-    DB[:conn].execute(sql).map {|row| Song.new_from_db(row)}.first
+    DB[:conn].execute(sql, name).map {|row| Song.new_from_db(row)}.first
     # find the student in the database given a name
     # return a new instance of the Student class
   end
